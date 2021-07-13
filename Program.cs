@@ -40,75 +40,75 @@ namespace ConsoleApp1
             .GroupBy(x => x?.form_formdefinitionid?.ToString(), (k, g) =>
             {
                 var first = g.FirstOrDefault();
-                return new
+                return new FormDefinitionDto
                 {
-                    formDefinitionId = k,
-                    form_name = first?.form_name?.ToString(),
-                    form_description = first?.form_description?.ToString(),
-                    form_rendertype = (int?)first?.form_rendertype,
-                    form_order = (int?)first?.form_order,
+                    FormDefinitionId = k,
+                    FormName = first?.form_name?.ToString(),
+                    FormDescription = first?.form_description?.ToString(),
+                    FormRendertype = (int?)first?.form_rendertype,
+                    FormOrder = (int?)first?.form_order,
 
-                    orderedSections = g
+                    OrderedSections = g
                     .GroupBy(s => s?.orderedsection_formsectionid?.ToString(), (k, g) =>
                     {
                         var first = g.FirstOrDefault();
-                        return new
+                        return new OrderedSection
                         {
-                            formSectionId = k,
-                            name = first?.orderedsection_name?.ToString(),
-                            order = (int?)first?.orderedsection_order,
+                            FormSectionId = k,
+                            Name = first?.orderedsection_name?.ToString(),
+                            Order = (int?)first?.orderedsection_order,
 
-                            questions = g
+                            Questions = g
                               .GroupBy(q => q?.question_questionid?.ToString(), (k, g) =>
                               {
                                   var first = g.FirstOrDefault();
-                                  return new
+                                  return new Question
                                   {
-                                      question_questionid = k,
-                                      formSectionId = first?.question_formsectionid?.ToString(),
-                                      name = first?.question_name?.ToString(),
-                                      text = first?.question_text?.ToString(),
-                                      description = first?.question_description?.ToString(),
-                                      type = (int?)first?.question_type,
-                                      compoundType = (int?)first?.question_compoundtype,
-                                      isCollection = (bool?)first?.question_iscollection,
-                                      order = (int?)first?.question_order,
-                                      validation_isMandatory = (bool?)first?.question_validation_ismandatory,
-                                      validation_options = first?.question_validation_options?.ToString(),
-                                      validation_dropdownUrl = first?.question_validation_dropdownurl?.ToString(),
-                                      validation_maxLength = (int?)first?.question_validation_text_maxlength,
-                                      validation_mask = first?.question_validation_text_mask?.ToString(),
-                                      validation_regularExpression = first?.question_validation_text_regularexpression?.ToString(),
-                                      validation_minNumber = (int?)first?.question_validation_number_minnumber,
-                                      validation_maxNumber = (int?)first?.question_validation_number_maxnumber,
-                                      validation_decimalPrecision = (int?)first?.question_validation_number_decimalprecision,
-                                      validation_textareaRows = (int?)first?.question_validation_textarea_rows,
+                                      QuestionQuestionid = k,
+                                      FormSectionId = first?.question_formsectionid?.ToString(),
+                                      Name = first?.question_name?.ToString(),
+                                      Text = first?.question_text?.ToString(),
+                                      Description = first?.question_description?.ToString(),
+                                      Type = (int?)first?.question_type,
+                                      CompoundType = (int?)first?.question_compoundtype,
+                                      IsCollection = (bool?)first?.question_iscollection,
+                                      Order = (int?)first?.question_order,
+                                      ValidationIsMandatory = (bool?)first?.question_validation_ismandatory,
+                                      ValidationOptions = first?.question_validation_options?.ToString(),
+                                      ValidationDropdownUrl = first?.question_validation_dropdownurl?.ToString(),
+                                      ValidationMaxLength = (int?)first?.question_validation_text_maxlength,
+                                      ValidationMask = first?.question_validation_text_mask?.ToString(),
+                                      ValidationRegularExpression = first?.question_validation_text_regularexpression?.ToString(),
+                                      ValidationMinNumber = (int?)first?.question_validation_number_minnumber,
+                                      ValidationMaxNumber = (int?)first?.question_validation_number_maxnumber,
+                                      ValidationDecimalPrecision= (int?)first?.question_validation_number_decimalprecision,
+                                      ValidationTextareaRows = (int?)first?.question_validation_textarea_rows,
 
-                                      compoundQuestions = g
+                                      CompoundQuestions = g
                                       .GroupBy(cq => cq?.compoundquestion_questionid?.ToString(), (k, g) =>
                                       {
                                           var first = g.FirstOrDefault();
-                                          return new
+                                          return new CompoundQuestion
                                           {
-                                              questionId = k,
-                                              name = first?.compoundquestion_name?.ToString(),
-                                              formSectionId = first?.compoundquestion_formsectionid?.ToString(),
-                                              text = first?.compoundquestion_text?.ToString(),
-                                              description = first?.compoundquestion_description?.ToString(),
-                                              type = (int?)first?.compoundquestion_type,
-                                              compoundType = (int?)first?.compoundquestion_compoundtype,
-                                              isCollection = (bool?)first?.compoundquestion_iscollection,
-                                              order = (int?)first?.compoundquestion_order,
-                                              validation_isMandatory = (bool?)first?.compoundquestion_validation_ismandatory,
-                                              validation_options = first?.compoundquestion_validation_options?.ToString(),
-                                              validation_dropdownUrl = first?.compoundquestion_validation_dropdownurl?.ToString(),
-                                              validation_maxLength = (int?)first?.compoundquestion_validation_text_maxlength,
-                                              validation_mask = first?.compoundquestion_validation_text_mask?.ToString(),
-                                              validation_regularExpression = first?.compoundquestion_validation_text_regularexpression?.ToString(),
-                                              validation_minNumber = (int?)first?.compoundquestion_validation_number_minnumber,
-                                              validation_maxNumber = (int?)first?.compoundquestion_validation_number_maxnumber,
-                                              validation_decimalPrecision = (int?)first?.compoundquestion_validation_number_decimalprecision,
-                                              validation_textareaRows = (int?)first?.compoundquestion_validation_textarea_rows,
+                                              QuestionId = k,
+                                              Name = first?.compoundquestion_name?.ToString(),
+                                              FormSectionId = first?.compoundquestion_formsectionid?.ToString(),
+                                              Text = first?.compoundquestion_text?.ToString(),
+                                              Description = first?.compoundquestion_description?.ToString(),
+                                              Type = (int?)first?.compoundquestion_type,
+                                              CompoundType = (int?)first?.compoundquestion_compoundtype,
+                                              IsCollection = (bool?)first?.compoundquestion_iscollection,
+                                              Order = (int?)first?.compoundquestion_order,
+                                              ValidationIsMandatory = (bool?)first?.compoundquestion_validation_ismandatory,
+                                              ValidationOptions = first?.compoundquestion_validation_options?.ToString(),
+                                              ValidationDropdownUrl = first?.compoundquestion_validation_dropdownurl?.ToString(),
+                                              ValidationMaxLength = (int?)first?.compoundquestion_validation_text_maxlength,
+                                              ValidationMask = first?.compoundquestion_validation_text_mask?.ToString(),
+                                              ValidationRegularExpression = first?.compoundquestion_validation_text_regularexpression?.ToString(),
+                                              ValidationMinNumber = (int?)first?.compoundquestion_validation_number_minnumber,
+                                              ValidationMaxNumber = (int?)first?.compoundquestion_validation_number_maxnumber,
+                                              ValidationDecimalPrecision = (int?)first?.compoundquestion_validation_number_decimalprecision,
+                                              ValidationTextareaRows = (int?)first?.compoundquestion_validation_textarea_rows,
                                           };
                                       })
                                   };

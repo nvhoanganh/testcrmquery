@@ -73,4 +73,9 @@ namespace testcrmquery
         public string question_validation_text_regularexpression { get; set; }
         public string question_validation_text_mask { get; set; }
     }
+
+    public class FormDto
+    {
+        
+    }
 }
